@@ -1,0 +1,18 @@
+server:
+  port: 8085
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: rider-service
+              uri: https://riderservice-327s.onrender.com
+              predicates:
+                - Path=/rider/**
+
+            - id: customer-service
+              uri: https://customerservice-cuyx.onrender.com
+              predicates:
+                - Path=/customer/**
